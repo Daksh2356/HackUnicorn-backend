@@ -1,0 +1,125 @@
+[{
+    "_id": {
+      "$oid": "648965401b12ca4d04518299"
+    },
+    "name": "John Doe",
+    "email": "johndoe@example.com",
+    "address": "123 Main Street, Anytown, USA",
+    "accountNumber": "987654321",
+    "accountBalance": 5000,
+    "recentTransactions": [
+      {
+        "date": "2023-06-10",
+        "amount": -100,
+        "recipient": "Amazon.com",
+        "type": "Purchase"
+      },
+      {
+        "date": "2023-06-07",
+        "amount": 500,
+        "sender": "Employer Inc.",
+        "type": "Salary Deposit"
+      }
+    ],
+    "password": "password123"
+  },
+  {
+    "_id": {
+      "$oid": "648965401b12ca4d0451829a"
+    },
+    "name": "Jane Smith",
+    "email": "janesmith@example.com",
+    "address": "456 Elm Avenue, Anycity, USA",
+    "accountNumber": "123456789",
+    "accountBalance": 2500,
+    "recentTransactions": [
+      {
+        "date": "2023-06-09",
+        "amount": -50,
+        "recipient": "Grocery Store",
+        "type": "Purchase"
+      },
+      {
+        "date": "2023-06-05",
+        "amount": 1000,
+        "sender": "Friend",
+        "type": "Payment"
+      }
+    ],
+    "password": "password456"
+  },
+  {
+    "_id": {
+      "$oid": "648965401b12ca4d0451829b"
+    },
+    "name": "Michael Johnson",
+    "email": "michaeljohnson@example.com",
+    "address": "789 Oak Road, Anystate, USA",
+    "accountNumber": "246813579",
+    "accountBalance": 10000,
+    "recentTransactions": [
+      {
+        "date": "2023-06-10",
+        "amount": -200,
+        "recipient": "Electric Company",
+        "type": "Bill Payment"
+      },
+      {
+        "date": "2023-06-03",
+        "amount": 2500,
+        "sender": "Investment Company",
+        "type": "Dividend"
+      }
+    ],
+    "password": "password789"
+  },
+  {
+    "_id": {
+      "$oid": "648965401b12ca4d0451829c"
+    },
+    "name": "Emily Brown",
+    "email": "emilybrown@example.com",
+    "address": "567 Pine Street, Anycity, USA",
+    "accountNumber": "135792468",
+    "accountBalance": 1200,
+    "recentTransactions": [
+      {
+        "date": "2023-06-08",
+        "amount": -30,
+        "recipient": "Coffee Shop",
+        "type": "Purchase"
+      },
+      {
+        "date": "2023-06-02",
+        "amount": 500,
+        "sender": "Family Member",
+        "type": "Gift"
+      }
+    ],
+    "password": "passwordabc"
+  },
+  {
+    "_id": {
+      "$oid": "648965401b12ca4d0451829d"
+    },
+    "name": "David Wilson",
+    "email": "davidwilson@example.com",
+    "address": "890 Maple Avenue, Anystate, USA",
+    "accountNumber": "369852147",
+    "accountBalance": 7800,
+    "recentTransactions": [
+      {
+        "date": "2023-06-11",
+        "amount": -500,
+        "recipient": "Travel Agency",
+        "type": "Vacation Booking"
+      },
+      {
+        "date": "2023-06-01",
+        "amount": 1000,
+        "sender": "Employer Inc.",
+        "type": "Bonus"
+      }
+    ],
+    "password": "passwordxyz"
+  }]

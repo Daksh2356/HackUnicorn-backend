@@ -8,6 +8,14 @@ const app = express();
 const port = 4000;
 
 // app.use(cors());
+
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://hack-unicorn.vercel.app');
+  res.setHeader('Access-Control-Allow-Methods', 'POST');
+  res.setHeader('Access-Control-Allow-Headers', 'Accept, Content-Type');
+  next();
+});
+
 app.use(cors({origin: ['http://localhost:3000', 'https://hack-unicorn.vercel.app/']}));
 app.use(express.json());
 
@@ -44,6 +52,9 @@ app.post("/api/register", async (req, res) => {
 });
 
 app.post("/api/login", async (req, res) => {
+
+  res.setHeader('Access-Control-Allow-Origin', 'https://hack-unicorn.vercel.app');
+  
   console.log(req.body);
   const user = await User.findOne({
     email: req.body.email,

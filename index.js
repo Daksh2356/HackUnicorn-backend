@@ -7,7 +7,8 @@ const User = require("./models/user.model");
 const app = express();
 const port = 4000;
 
-app.use(cors());
+// app.use(cors());
+app.use(cors({origin: ['http://localhost:3000', 'https://hack-unicorn.vercel.app/']}));
 app.use(express.json());
 
 mongoose

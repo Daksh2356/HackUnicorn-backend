@@ -2,24 +2,25 @@ const mongoose = require("mongoose");
 
 const User = new mongoose.Schema(
   {
-    name: { type: String, required: true },
+    username: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     address: { type: String, required: true },
-    accountNumber: { type: String, required: true },
-    accountBalance: Number,
+    accno: { type: String, required: true },
+    accountBalance: { type: Number },
     recentTransactions: [
       {
-        date: Date,
-        amount: Number,
-        recipient: String,
-        sender: String,
-        type: String,
+        type: { type: String, required: true },
+        sender: { type: String, required: true },
+        recipient: { type: String, required: true },
+        amount: { type: Number, required: true },
+        date: { type: Date, required: true },
       },
     ],
   },
   { collection: "user-data" }
 );
+
 
 const model = mongoose.model("UserData", User);
 

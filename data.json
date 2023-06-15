@@ -1,11 +1,12 @@
-[{
+[
+  {
     "_id": {
       "$oid": "648965401b12ca4d04518299"
     },
-    "name": "John Doe",
+    "username": "John Doe",
     "email": "johndoe@example.com",
     "address": "123 Main Street, Anytown, USA",
-    "accountNumber": "987654321",
+    "accno": "987654321",
     "accountBalance": 5000,
     "recentTransactions": [
       {
@@ -20,17 +21,16 @@
         "sender": "Employer Inc.",
         "type": "Salary Deposit"
       }
-    ],
-    "password": "password123"
+    ]
   },
   {
     "_id": {
       "$oid": "648965401b12ca4d0451829a"
     },
-    "name": "Jane Smith",
+    "username": "Jane Smith",
     "email": "janesmith@example.com",
     "address": "456 Elm Avenue, Anycity, USA",
-    "accountNumber": "123456789",
+    "accno": "123456789",
     "accountBalance": 2500,
     "recentTransactions": [
       {
@@ -45,17 +45,16 @@
         "sender": "Friend",
         "type": "Payment"
       }
-    ],
-    "password": "password456"
+    ]
   },
   {
     "_id": {
       "$oid": "648965401b12ca4d0451829b"
     },
-    "name": "Michael Johnson",
+    "username": "Michael Johnson",
     "email": "michaeljohnson@example.com",
     "address": "789 Oak Road, Anystate, USA",
-    "accountNumber": "246813579",
+    "accno": "246813579",
     "accountBalance": 10000,
     "recentTransactions": [
       {
@@ -70,17 +69,16 @@
         "sender": "Investment Company",
         "type": "Dividend"
       }
-    ],
-    "password": "password789"
+    ]
   },
   {
     "_id": {
       "$oid": "648965401b12ca4d0451829c"
     },
-    "name": "Emily Brown",
+    "username": "Emily Brown",
     "email": "emilybrown@example.com",
     "address": "567 Pine Street, Anycity, USA",
-    "accountNumber": "135792468",
+    "accno": "135792468",
     "accountBalance": 1200,
     "recentTransactions": [
       {
@@ -95,17 +93,16 @@
         "sender": "Family Member",
         "type": "Gift"
       }
-    ],
-    "password": "passwordabc"
+    ]
   },
   {
     "_id": {
       "$oid": "648965401b12ca4d0451829d"
     },
-    "name": "David Wilson",
+    "username": "David Wilson",
     "email": "davidwilson@example.com",
     "address": "890 Maple Avenue, Anystate, USA",
-    "accountNumber": "369852147",
+    "accno": "369852147",
     "accountBalance": 7800,
     "recentTransactions": [
       {
@@ -120,6 +117,6 @@
         "sender": "Employer Inc.",
         "type": "Bonus"
       }
-    ],
-    "password": "passwordxyz"
-  }]
+    ]
+  }
+]

@@ -10,14 +10,13 @@ const port = 4000;
 app.use(cors());
 app.use(express.json());
 
-
 mongoose
   .connect("mongodb://127.0.0.1/hackunicorn-project")
   .catch((err) => {
     console.log(err);
   })
   .then(() => {
-    console.log("Connected DB");
+    console.log("Connected to DB");
   });
 
 app.post("/api/register", async (req, res) => {
@@ -25,21 +24,23 @@ app.post("/api/register", async (req, res) => {
   try {
     const newPassword = await bcryptjs.hash(req.body.password, 10);
     await User.create({
-      name: req.body.name,
+      username: req.body.username,
       email: req.body.email,
       password: newPassword,
+      accno: req.body.accno,
+      address: req.body.address,
+      accountBalance: req.body.accountBalance,
+      recentTransactions: req.body.recentTransactions,
     });
     return res.json({ status: "Ok!" });
-  } 
-  catch (error) {
+  } catch (error) {
     console.log(error);
     res.json({
       status: "error",
-      error: "Duplicate mail/ User already exists !!",
+      error: "Duplicate mail/ User already exists!!",
     });
   }
-}
-);
+});
 
 app.post("/api/login", async (req, res) => {
   console.log(req.body);
@@ -47,7 +48,7 @@ app.post("/api/login", async (req, res) => {
     email: req.body.email,
   });
 
-  if (!user) return { status: "error", error: "Invalid login " };
+  if (!user) return { status: "error", error: "Invalid login" };
 
   const isValidPassword = await bcryptjs.compare(
     req.body.password,
@@ -56,49 +57,51 @@ app.post("/api/login", async (req, res) => {
   if (isValidPassword) {
     const token = jwt.sign(
       {
-        name: user.name,
+        username: user.username,
         email: user.email,
       },
       "secret123"
     );
     return res.json({ status: "Ok!", user: token });
   } else {
-    res.json({
+    console.log("error");
+    return res.json({
       status: "error",
-      error: "Incorrect password entered !!",
+      error: "Incorrect password entered!!",
       user: false,
     });
   }
 });
 
 app.get("/api/user", async (req, res) => {
-    const { email, password } = req.query;
-  
-    try {
-      const user = await User.findOne({ email, password });
-  
-      if (!user) {
-        return res.json({ status: "error", error: "Invalid email or password" });
-      }
-  
-      // Return the user's data without the password
-      const userData = {
-        name: user.name,
-        email: user.email,
-        address: user.address,
-        accountNumber: user.accountNumber,
-        accountBalance: user.accountBalance,
-        recentTransactions: user.recentTransactions,
-      };
-  
-      return res.json({ status: "ok", user: userData });
-    } catch (error) {
-      console.log(error);
-      res.json({ status: "error", error: "An error occurred" });
+  const token = req.headers["x-access-token"];
+
+  try {
+    const decoded = jwt.verify(token, "secret123");
+    const email = decoded.email;
+    const user = await User.findOne({ email: email });
+
+    if (!user) {
+      return res.json({ status: "error", error: "Invalid email or password" });
     }
-  });
-  
+
+    // Return the user's data without the password
+    const userData = {
+      username: user.username,
+      email: user.email,
+      address: user.address,
+      accno: user.accno,
+      accountBalance: user.accountBalance,
+      recentTransactions: user.recentTransactions,
+    };
+
+    return res.json({ status: "ok", user: userData });
+  } catch (error) {
+    console.log(error);
+    res.json({ status: "error", error: "An error occurred" });
+  }
+});
 
 app.listen(port, () => {
-  console.log("Server ran successfully !!");
+  console.log("Server running successfully!");
 });
